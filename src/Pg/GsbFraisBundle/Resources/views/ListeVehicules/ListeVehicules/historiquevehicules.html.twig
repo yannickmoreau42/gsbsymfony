@@ -1,0 +1,39 @@
+{% extends "PgGsbFraisBundle::accueil.html.twig" %}
+{% block body %}
+{% block bloc1 %}
+<div id="contenu">
+   <h2>Les Vehicules </h2>
+        <select name="choix du nom" size="1" style="width:150px"> 
+		<h1>Liste des catégories</h1>
+		{% for cat in categories %}
+			<p>{{ cat.nom }}</p>
+		{% else %}
+			<p>Aucune catégorie n'a été trouvée.</p>
+		{% endfor %}
+        ?> 
+        </select> 
+   <table style = "font-size: 20x">
+   <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Immatriculation</th>
+      <th>Marque</th>
+      <th>Modele</th>
+      <th>couleur</th>
+
+   </tr>
+       {% for uneL in HistoriqueVehiculesVisiteurs%}
+   <tr>
+      <td>{{uneL.nom}}</td>
+      <td>{{uneL.prenom}}</td>
+      <td>{{uneL.immat}}</td>
+      <td>{{uneL.marque}}</td>
+      <td>{{uneL.modele}}</td>
+      <td>{{uneL.couleur}}</td>
+   </tr>
+       {% endfor %}
+</table>
+</div>
+{% endblock %}
+{% endblock %}
+

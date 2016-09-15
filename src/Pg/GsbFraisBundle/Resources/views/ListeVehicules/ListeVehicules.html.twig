@@ -1,0 +1,31 @@
+{% extends "PgGsbFraisBundle::accueil.html.twig" %}
+{% block body %}
+   {% block bloc1 %}
+   <div id="contenu">
+      <h2>Les Vehicules</h2>
+         <table style = "font-size: 20x">
+            <tr>
+               <th>Nom</th>
+               <th>Prenom</th>
+               <th>Immatriculation</th>
+               <th>Marque</th>
+               <th>Modele</th>
+               <th>couleur</th>
+            </tr>
+            {% for uneL in ListeVehiculesVisiteurs%}
+               {% if  app.session.get('id')== uneL.idvisiteur %}
+               <tr>
+                  <td>{{uneL.nom}}</td>
+                  <td>{{uneL.prenom}}</td>
+                  <td>{{uneL.immat}}</td>
+                  <td>{{uneL.marque}}</td>
+                  <td>{{uneL.modele}}</td>
+                  <td>{{uneL.couleur}}</td>
+               </tr>
+               {%endif%}
+            {% endfor %}
+         </table>
+   </div>
+
+   {% endblock %}
+{% endblock %}
